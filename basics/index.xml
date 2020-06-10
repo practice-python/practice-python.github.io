@@ -13,10 +13,10 @@
     
     <item>
       <title>First Content</title>
-      <link>https://practice-python.github.io/basics/first-content/</link>
+      <link>https://practice-python.github.io/basics/hello-world/</link>
       <pubDate>Tue, 09 Jun 2020 15:21:27 +0200</pubDate>
       
-      <guid>https://practice-python.github.io/basics/first-content/</guid>
+      <guid>https://practice-python.github.io/basics/hello-world/</guid>
       <description>First content  if True: print(&#34;True&#34;)  # This is solution try it  success_msg(&#34;Great job!&#34;)  This is your hint 1 This is your hint 2   </description>
     </item>
     

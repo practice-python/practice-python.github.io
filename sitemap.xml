@@ -3,7 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://practice-python.github.io/basics/first-content/</loc>
+    <loc>https://practice-python.github.io/introduction/</loc>
+    <lastmod>2020-06-10T08:04:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://practice-python.github.io/basics/hello-world/</loc>
     <lastmod>2020-06-09T15:21:27+02:00</lastmod>
   </url>
   
@@ -19,7 +24,12 @@
   
   <url>
     <loc>https://practice-python.github.io/</loc>
-    <lastmod>2020-06-09T15:22:57+02:00</lastmod>
+    <lastmod>2020-06-10T08:42:05+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://practice-python.github.io/introduction/overview/</loc>
+    <lastmod>2020-06-10T08:42:05+02:00</lastmod>
   </url>
   
   <url>

@@ -8,17 +8,17 @@
 },
 {
 	"uri": "https://practice-python.github.io/basics/hello-world/",
-	"title": "First Content",
+	"title": "Hello World",
 	"tags": [],
 	"description": "",
-	"content": "First content  if True: print(\"True\")  # This is solution try it  success_msg(\"Great job!\")  This is your hint 1 This is your hint 2   "
+	"content": "Let\u0026rsquo;s start with basic traditional program that will print \u0026ldquo;Hello, World!\u0026quot;.\nSee following code and Hit submit\n print(\"Hello, world!\")  success_msg(\"Great job!\")  Just hit submit button.   Explanation One the left hand side you see script.py and on the right hand side you see Ipython shell, its same as terminal, you can directly type command on it and hit enter to execute.\ninside script.py, we used print() function (we will cover later) and we are passing \u0026ldquo;Hello World!\u0026rdquo; as argument.\n"
 },
 {
-	"uri": "https://practice-python.github.io/basics/second-content/",
-	"title": "Second Content",
+	"uri": "https://practice-python.github.io/basics/variables/",
+	"title": "Variables",
 	"tags": [],
 	"description": "",
-	"content": "Second content "
+	"content": "What is Variable ? You can think variable as drawers, like you have drawers to store clothes, files, books etc and you know which drawer has which things using the labels or tag.\nSo in programming, you store the data and you labeled it as the thing you refer. Variables are common for every programming/scripting language. Every script/program keep track of stuff, like when you create facebook login you have to feel details like name, age, sex. we put this information into variable. it\u0026rsquo;s just a container for the value and that value can vary hence the name variable.\n"
 },
 {
 	"uri": "https://practice-python.github.io/basics/",
@@ -28,11 +28,32 @@
 	"content": "Chapter One Basics "
 },
 {
+	"uri": "https://practice-python.github.io/advanced/",
+	"title": "Advanced",
+	"tags": [],
+	"description": "",
+	"content": "Chapter Two "
+},
+{
+	"uri": "https://practice-python.github.io/advanced/generators/",
+	"title": "Generators",
+	"tags": [],
+	"description": "",
+	"content": "To understand generators you must know functions, iterable and yield so let\u0026rsquo;s understand that first\nHow does function works? When you call function it\u0026rsquo;s start from the first line until return statement or if there is any unexpected error occurred i.e. exeption\nFunction returns its result once and then its clears all function state to default, means you lost all intermediate variables etc after return.\nWhat is iteration, iterable, and iterator?   An iteration is a general term for taking each item of something, one after another. imaging flipping pages of book one by one. whenever you use loop (for i in ..), you go over a group of items one by one that is iteration.\n  An iterable is an object that has an __iter__ method which returns an iterator (Python terminology) in short anything that can be looped over. e.g list, dict, file_object etc.\n  An iterator is a more general concept:\n iterator is an object with state that remembers where it is during iteration. with a next method that:  returns the next value in the iteration updates the state to point at the next value signals when it is done by raising StopIteration      Generator function returns an iterator object\n  Whole benefit of iterator is store one element a time in memory\n  Every generator is an iterator, but not vice versa.\n  What is yield? yield statement resumes where the function left off.\nWhat is a Python Generator (Textbook Definition) A Python generator is a function which returns a generator iterator (just an object we can iterate over) by calling yield. yield may be called with a value, in which case that value is treated as the \u0026ldquo;generated\u0026rdquo; value. The next time next is called on the generator iterator (i.e. in the next step in a for loop, for example), generator resumes execution from where it called yield, not from the beginning of the function. All of the state, like the values of local variables, is recovered and the generator continues to execute until the next call to yield.\nExamples Let\u0026rsquo;s implement countdown\n\u0026gt;\u0026gt;\u0026gt; def countdown(number): ... while number \u0026gt; 0: ... yield number ... number -= 1 \u0026gt;\u0026gt;\u0026gt; timer = countdown(5) \u0026gt;\u0026gt;\u0026gt; timer.__next__() # function starts here 5 \u0026gt;\u0026gt;\u0026gt; # yeild produces a value, but suspends the function \u0026gt;\u0026gt;\u0026gt; timer.__next__() # function resumes on next call to __next__() 4 \u0026gt;\u0026gt;\u0026gt; timer.__next__() 3 \u0026gt;\u0026gt;\u0026gt; timer.__next__() 2 \u0026gt;\u0026gt;\u0026gt; timer.__next__() 1 \u0026gt;\u0026gt;\u0026gt; timer.__next__() Traceback (most recent call last): File \u0026#34;\u0026lt;stdin\u0026gt;\u0026#34;, line 1, in \u0026lt;module\u0026gt; StopIteration As you can see output, instead of returning a value, its generating series of values using yield statement\n\u0026gt;\u0026gt;\u0026gt; timer = countdown(5) \u0026gt;\u0026gt;\u0026gt; timer \u0026lt;generator object countdown at 0x104a09410\u0026gt; Behavior of generator is quite different than normal function, calling a generator function creates an generator object, it does not start running function.\nGenerator Expression Here is generator version of list comprehension\n\u0026gt;\u0026gt;\u0026gt; numbers = (num for num in range(10)) \u0026gt;\u0026gt;\u0026gt; numbers \u0026lt;generator object \u0026lt;genexpr\u0026gt; at 0x104a09460\u0026gt; This will produce result one at a time using generator and you can use it only once.\nTo see the difference in list comprehension and generator, let load file and check the size of list and then generator\n\u0026gt;\u0026gt;\u0026gt; f1 = [line for line in open(\u0026#34;/var/log/syslog\u0026#34;)] \u0026gt;\u0026gt;\u0026gt; sys.getsizeof(f1) 33936 \u0026gt;\u0026gt;\u0026gt; f2 = (line for line in open(\u0026#34;/var/log/syslog\u0026#34;)) \u0026gt;\u0026gt;\u0026gt; sys.getsizeof(f2) 80 Yes, big difference because generator will load one line at a time when you call next() method on the object.\nExercise Write a generator function which return series of prime numbers of input number. (A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. The first few prime numbers are {2, 3, 5, 7, 11, ….}.)\n def get_primes(number): pass for prime in get_primes(20): print(prime)  def get_primes(number): for num in range(number): if is_prime(num): yield num def is_prime(number): if number test_output_contains(\"19\", no_output_msg= \"Its not returning prime number 19\") success_msg(\"Great job!\")  - Use while loop inside get_primes function - Use yield statement instead of return   "
+},
+{
 	"uri": "https://practice-python.github.io/",
 	"title": "Learn Python by Practice",
 	"tags": [],
 	"description": "",
 	"content": "Learn Python by Practice "
+},
+{
+	"uri": "https://practice-python.github.io/basics/todo/",
+	"title": "Todo",
+	"tags": [],
+	"description": "",
+	"content": "Will update soon "
 },
 {
 	"uri": "https://practice-python.github.io/introduction/overview/",

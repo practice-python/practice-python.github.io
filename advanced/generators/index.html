@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Overview :: Practice Python</title>
+    <title>Generators :: Practice Python</title>
 
     
     <link href="/css/nucleus.css?1592135247" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/introduction/overview/">
+  <body class="" data-url="/advanced/generators/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -83,7 +83,7 @@
   
     
     <li data-nav-id="/introduction/" title="Introduction" class="dd-item 
-        parent
+        
         
         
         ">
@@ -111,7 +111,7 @@
  
   
     
-      <li data-nav-id="/introduction/overview/" title="Overview" class="dd-item active">
+      <li data-nav-id="/introduction/overview/" title="Overview" class="dd-item ">
         <a href="/introduction/overview/">
         Overview
         <i class="fas fa-check read-icon"></i>
@@ -239,7 +239,7 @@
   
     
     <li data-nav-id="/advanced/" title="Advanced" class="dd-item 
-        
+        parent
         
         
         ">
@@ -267,7 +267,7 @@
  
   
     
-      <li data-nav-id="/advanced/generators/" title="Generators" class="dd-item ">
+      <li data-nav-id="/advanced/generators/" title="Generators" class="dd-item active">
         <a href="/advanced/generators/">
         Generators
         <i class="fas fa-check read-icon"></i>
@@ -361,7 +361,7 @@
                   <span class="links">
                  
                  
-                   Overview
+                   Generators
                  
                   </span>
                 </div>
@@ -370,9 +370,13 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#why-should-i-learn-python">Why should I learn Python?</a></li>
-    <li><a href="#how-to-practice-python">How to Practice Python</a></li>
-    <li><a href="#whats-in-this-practice-python">What&rsquo;s in this Practice Python?</a></li>
+    <li><a href="#how-does-function-works">How does function works?</a></li>
+    <li><a href="#what-is-iteration-iterable-and-iterator">What is iteration, iterable, and iterator?</a></li>
+    <li><a href="#what-is-yield">What is <code>yield</code>?</a></li>
+    <li><a href="#what-is-a-python-generator-textbook-definition">What is a Python Generator (Textbook Definition)</a></li>
+    <li><a href="#examples">Examples</a></li>
+    <li><a href="#generator-expression">Generator Expression</a></li>
+    <li><a href="#exercise">Exercise</a></li>
   </ul>
 </nav>
     </div>
@@ -390,26 +394,158 @@
           
             <h1>
               
-              Overview
+              Generators
             </h1>
           
 
         
 
 
-<h2 id="why-should-i-learn-python">Why should I learn Python?</h2>
-<p>Python has been around for nearly 30 years and is still rising in popularity because of some &ldquo;new&rdquo; popular usage (Cloud, data science, machine learning&hellip;) and because Python is a really popular first language thanks to his accessibility and quick learning curve.</p>
-<p>Remember language is just a tool and your skill will translate to any new language.
-It&rsquo;s like learning to drive: once you know how to drive, you can drive any car, even if you don&rsquo;t know where the buttons are, you&rsquo;ll always be able to go somewhere with it.</p>
-<h2 id="how-to-practice-python">How to Practice Python</h2>
-<p>You&rsquo;ve got to practice python in order only if you are not experience in Python.
-Each chapter assumes that you&rsquo;ve practice the previous ones.</p>
-<h2 id="whats-in-this-practice-python">What&rsquo;s in this Practice Python?</h2>
-<p>Learning syntax of any programming language is not enough, you can learn many
-language but if you don&rsquo;t develop problem solving skills then its all useless.
-That&rsquo;s why this practice/course is combination of data structure and algorithms
-with Python 3. So if you don&rsquo;t know anything about any programming language then
-you can start from Beginning.</p>
+<p>To understand generators you must know functions, iterable and yield so let&rsquo;s understand
+that first</p>
+<h2 id="how-does-function-works">How does function works?</h2>
+<p>When you call function it&rsquo;s start from the first line until <code>return</code> statement or
+if there is any unexpected error occurred i.e. <code>exeption</code></p>
+<p>Function returns its result once and then its clears all function state to default,
+means you lost all intermediate variables etc after return.</p>
+<h2 id="what-is-iteration-iterable-and-iterator">What is iteration, iterable, and iterator?</h2>
+<ul>
+<li>
+<p>An <strong>iteration</strong> is a general term for taking each item of something, one after another.
+imaging flipping pages of book one by one.
+whenever you use loop (for i in ..), you go over a group of items one by one that is iteration.</p>
+</li>
+<li>
+<p>An <strong>iterable</strong> is an object that has an <code>__iter__</code> method which returns an iterator (Python terminology)
+in short anything that can be looped over. e.g list, dict, file_object etc.</p>
+</li>
+<li>
+<p>An iterator is a more general concept:</p>
+<ul>
+<li><strong>iterator</strong> is an object with state that remembers where it is during iteration.</li>
+<li>with a <strong>next</strong> method that:
+<ul>
+<li>returns the next value in the iteration</li>
+<li>updates the state to point at the next value</li>
+<li>signals when it is done by raising StopIteration</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Generator function returns an iterator object</p>
+</li>
+<li>
+<p>Whole benefit of iterator is store one element a time in memory</p>
+</li>
+<li>
+<p>Every generator is an iterator, but not vice versa.</p>
+</li>
+</ul>
+<h2 id="what-is-yield">What is <code>yield</code>?</h2>
+<p><code>yield</code> statement resumes where the function left off.</p>
+<h2 id="what-is-a-python-generator-textbook-definition">What is a Python Generator (Textbook Definition)</h2>
+<p>A Python generator is a function which returns a generator iterator (just an object we can iterate over) by calling <code>yield</code>.
+<code>yield</code> may be called with a value, in which case that value is treated as the &ldquo;generated&rdquo; value.
+The next time <code>next</code> is called on the generator iterator (i.e. in the next step in a for loop, for example),
+generator resumes execution from where it called <code>yield</code>, not from the beginning of the function. All of the state,
+like the values of local variables, is recovered and the generator continues to execute until the next call to yield.</p>
+<h2 id="examples">Examples</h2>
+<p>Let&rsquo;s implement countdown</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">countdown</span>(number):
+<span style="color:#f92672">...</span>     <span style="color:#66d9ef">while</span> number <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+<span style="color:#f92672">...</span>         <span style="color:#66d9ef">yield</span> number
+<span style="color:#f92672">...</span>         number <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+
+<span style="color:#f92672">&gt;&gt;&gt;</span> timer <span style="color:#f92672">=</span> countdown(<span style="color:#ae81ff">5</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> timer<span style="color:#f92672">.</span>__next__()  <span style="color:#75715e"># function starts here</span>
+<span style="color:#ae81ff">5</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#75715e"># yeild produces a value, but suspends the function</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> timer<span style="color:#f92672">.</span>__next__()  <span style="color:#75715e"># function resumes on next call to __next__()</span>
+<span style="color:#ae81ff">4</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> timer<span style="color:#f92672">.</span>__next__()
+<span style="color:#ae81ff">3</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> timer<span style="color:#f92672">.</span>__next__()
+<span style="color:#ae81ff">2</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> timer<span style="color:#f92672">.</span>__next__()
+<span style="color:#ae81ff">1</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> timer<span style="color:#f92672">.</span>__next__()
+Traceback (most recent call last):
+  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
+<span style="color:#a6e22e">StopIteration</span>
+</code></pre></div><p>As you can see output, instead of returning a value, its generating series of
+values using <code>yield</code> statement</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> timer <span style="color:#f92672">=</span> countdown(<span style="color:#ae81ff">5</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> timer
+<span style="color:#f92672">&lt;</span>generator object countdown at <span style="color:#ae81ff">0x104a09410</span><span style="color:#f92672">&gt;</span>
+</code></pre></div><p>Behavior of generator is quite different than normal function, calling a generator
+function creates an generator object, it does not start running function.</p>
+<h2 id="generator-expression">Generator Expression</h2>
+<p>Here is generator version of list comprehension</p>
+<pre><code>&gt;&gt;&gt; numbers = (num for num in range(10))
+&gt;&gt;&gt; numbers
+&lt;generator object &lt;genexpr&gt; at 0x104a09460&gt;
+</code></pre><p>This will produce result one at a time using generator and you can use it only once.</p>
+<p>To see the difference in list comprehension and generator, let load file and
+check the size of list and then generator</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> f1 <span style="color:#f92672">=</span> [line <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> open(<span style="color:#e6db74">&#34;/var/log/syslog&#34;</span>)]
+<span style="color:#f92672">&gt;&gt;&gt;</span> sys<span style="color:#f92672">.</span>getsizeof(f1)
+<span style="color:#ae81ff">33936</span>
+
+<span style="color:#f92672">&gt;&gt;&gt;</span> f2 <span style="color:#f92672">=</span> (line <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> open(<span style="color:#e6db74">&#34;/var/log/syslog&#34;</span>))
+<span style="color:#f92672">&gt;&gt;&gt;</span> sys<span style="color:#f92672">.</span>getsizeof(f2)
+<span style="color:#ae81ff">80</span>
+</code></pre></div><p>Yes, big difference because generator will load one line at a time when you call <code>next()</code>
+method on the object.</p>
+<h2 id="exercise">Exercise</h2>
+<p>Write a generator function which return series of prime numbers of input number. (A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. The first few prime numbers are {2, 3, 5, 7, 11, ….}.)</p>
+<script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script>
+<div data-datacamp-exercise data-no-lazy-load data-lang="python">
+    
+<code data-type="sample-code">
+    
+def get_primes(number):
+    pass
+
+for prime in get_primes(20):
+    print(prime)
+
+</code>
+
+<code data-type="solution">
+    
+def get_primes(number):
+    for num in range(number):
+        if is_prime(num):
+            yield num
+
+def is_prime(number):
+    if number < 1:
+        return True
+    for num in range(2, number):
+        if number%num == 0:
+            return False
+    return True
+
+</code>
+
+<code data-type="sct">
+    
+test_output_contains("19", no_output_msg= "Its not returning prime number 19")
+success_msg("Great job!")
+
+</code>
+
+<div data-type="hint">
+
+<li>- Use while loop inside get_primes function</li>
+<li>- Use yield statement instead of return</li>
+
+</div>
+
+
+</div>
+
 
 
 <footer class="footline">
@@ -447,40 +583,6 @@ you can start from Beginning.</p>
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -491,38 +593,6 @@ you can start from Beginning.</p>
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -560,6 +630,72 @@ you can start from Beginning.</p>
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -584,10 +720,10 @@ you can start from Beginning.</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/introduction/" title="Introduction"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/advanced/" title="Advanced"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/basics/" title="Basics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/introduction/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

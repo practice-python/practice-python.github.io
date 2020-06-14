@@ -13,8 +13,8 @@
   </url>
   
   <url>
-    <loc>https://practice-python.github.io/basics/second-content/</loc>
-    <lastmod>2020-06-09T15:22:57+02:00</lastmod>
+    <loc>https://practice-python.github.io/basics/variables/</loc>
+    <lastmod>2020-06-10T20:19:07+02:00</lastmod>
   </url>
   
   <url>
@@ -23,8 +23,23 @@
   </url>
   
   <url>
+    <loc>https://practice-python.github.io/advanced/</loc>
+    <lastmod>2020-06-11T08:06:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://practice-python.github.io/advanced/generators/</loc>
+    <lastmod>2020-06-11T08:09:34+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://practice-python.github.io/</loc>
-    <lastmod>2020-06-10T08:42:05+02:00</lastmod>
+    <lastmod>2020-06-11T08:09:34+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://practice-python.github.io/basics/todo/</loc>
+    <lastmod>2020-06-10T20:12:41+02:00</lastmod>
   </url>
   
   <url>

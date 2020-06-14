@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced on Practice Python</title>
+    <link>https://practice-python.github.io/advanced/</link>
+    <description>Recent content in Advanced on Practice Python</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Jun 2020 08:06:08 +0200</lastBuildDate>
+    
+	<atom:link href="https://practice-python.github.io/advanced/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Generators</title>
+      <link>https://practice-python.github.io/advanced/generators/</link>
+      <pubDate>Thu, 11 Jun 2020 08:09:34 +0200</pubDate>
+      
+      <guid>https://practice-python.github.io/advanced/generators/</guid>
+      <description>To understand generators you must know functions, iterable and yield so let&amp;rsquo;s understand that first
+How does function works? When you call function it&amp;rsquo;s start from the first line until return statement or if there is any unexpected error occurred i.e. exeption
+Function returns its result once and then its clears all function state to default, means you lost all intermediate variables etc after return.
+What is iteration, iterable, and iterator?</description>
+    </item>
+    
+  </channel>
+</rss>

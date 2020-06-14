@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Basics on My New Hugo Site</title>
+    <title>Basics on Practice Python</title>
     <link>https://practice-python.github.io/basics/</link>
-    <description>Recent content in Basics on My New Hugo Site</description>
+    <description>Recent content in Basics on Practice Python</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 09 Jun 2020 15:12:28 +0200</lastBuildDate>
@@ -12,12 +12,34 @@
     
     
     <item>
-      <title>First Content</title>
+      <title>Hello World</title>
       <link>https://practice-python.github.io/basics/hello-world/</link>
       <pubDate>Tue, 09 Jun 2020 15:21:27 +0200</pubDate>
       
       <guid>https://practice-python.github.io/basics/hello-world/</guid>
-      <description>First content  if True: print(&#34;True&#34;)  # This is solution try it  success_msg(&#34;Great job!&#34;)  This is your hint 1 This is your hint 2   </description>
+      <description>Let&amp;rsquo;s start with basic traditional program that will print &amp;ldquo;Hello, World!&amp;quot;.
+See following code and Hit submit
+ print(&#34;Hello, world!&#34;)  success_msg(&#34;Great job!&#34;)  Just hit submit button.   Explanation One the left hand side you see script.py and on the right hand side you see Ipython shell, its same as terminal, you can directly type command on it and hit enter to execute.
+inside script.py, we used print() function (we will cover later) and we are passing &amp;ldquo;Hello World!</description>
+    </item>
+    
+    <item>
+      <title>Variables</title>
+      <link>https://practice-python.github.io/basics/variables/</link>
+      <pubDate>Wed, 10 Jun 2020 20:19:07 +0200</pubDate>
+      
+      <guid>https://practice-python.github.io/basics/variables/</guid>
+      <description>What is Variable ? You can think variable as drawers, like you have drawers to store clothes, files, books etc and you know which drawer has which things using the labels or tag.
+So in programming, you store the data and you labeled it as the thing you refer. Variables are common for every programming/scripting language. Every script/program keep track of stuff, like when you create facebook login you have to feel details like name, age, sex.</description>
+    </item>
+    
+    <item>
+      <title>Todo</title>
+      <link>https://practice-python.github.io/basics/todo/</link>
+      <pubDate>Wed, 10 Jun 2020 20:12:41 +0200</pubDate>
+      
+      <guid>https://practice-python.github.io/basics/todo/</guid>
+      <description>Will update soon </description>
     </item>
     
   </channel>
